@@ -1,0 +1,4 @@
+modelspy.exe
+dist/
+*.test.exe
+report.html

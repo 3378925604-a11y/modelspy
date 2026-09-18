@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "note": "v0.1 种子数据,均为启发式近似值,欢迎 PR 校准。ratio = tokens/字符数(扣除模板开销后)",
+  "candidates": [
+    {
+      "id": "gpt-4o",
+      "family": "openai",
+      "aliases": ["gpt-4o", "chatgpt-4o", "openai/gpt-4o"],
+      "ratio_en": [0.18, 0.29],
+      "ratio_zh": [0.7, 1.7],
+      "tpot_ms_min": 10,
+      "tpot_ms_max": 150,
+      "cutoff": "2024-06",
+      "capability": "medium"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "family": "openai",
+      "aliases": ["gpt-4o-mini", "chatgpt-4o-mini"],
+      "ratio_en": [0.18, 0.29],
+      "ratio_zh": [0.7, 1.7],
+      "tpot_ms_min": 5,
+      "tpot_ms_max": 100,
+      "cutoff": "2024-06",
+      "capability": "weak"
+    },
+    {
+      "id": "gpt-4.1",
+      "family": "openai",
+      "aliases": ["gpt-4.1", "gpt-41"],
+      "ratio_en": [0.16, 0.28],
+      "ratio_zh": [0.7, 1.7],
+      "tpot_ms_min": 10,
+      "tpot_ms_max": 150,
+      "cutoff": "2024-06",
+      "capability": "strong"
+    },
+    {
+      "id": "gpt-4.1-mini",
+      "family": "openai",
+      "aliases": ["gpt-4.1-mini"],
+      "ratio_en": [0.16, 0.28],
+      "ratio_zh": [0.7, 1.7],
+      "tpot_ms_min": 5,
+      "tpot_ms_max": 100,
+      "cutoff": "2024-06",
+      "capability": "medium"
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "family": "openai",
+      "aliases": ["gpt-4.1-nano"],
+      "ratio_en": [0.16, 0.28],
+      "ratio_zh": [0.7, 1.7],
+      "tpot_ms_min": 2,
+      "tpot_ms_max": 60,
+      "cutoff": "2024-06",
+      "capability": "weak"
+    },
+    {
+      "id": "claude-sonnet",
+      "family": "anthropic",
+      "aliases": ["claude-sonnet-4", "claude-sonnet-3-5", "claude-3.5-sonnet", "claude-3-7", "claude"],
+      "ratio_en": [0.2, 0.34],
+      "ratio_zh": [1.1, 2.2],
+      "tpot_ms_min": 15,
+      "tpot_ms_max": 200,
+      "cutoff": "2025-01",
+      "capability": "strong"
+    },
+    {
+      "id": "deepseek-chat",
+      "family": "deepseek",
+      "aliases": ["deepseek", "deepseek-chat", "deepseek-v3"],
+      "ratio_en": [0.2, 0.36],
+      "ratio_zh": [0.4, 0.95],
+      "tpot_ms_min": 8,
+      "tpot_ms_max": 150,
+      "cutoff": "2024-07",
+      "capability": "medium"
+    },
+    {
+      "id": "gemini-flash",
+      "family": "google",
+      "aliases": ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash"],
+      "ratio_en": [0.2, 0.33],
+      "ratio_zh": [0.5, 1.1],
+      "tpot_ms_min": 3,
+      "tpot_ms_max": 80,
+      "cutoff": "2025-01",
+      "capability": "strong"
+    },
+    {
+      "id": "qwen",
+      "family": "alibaba",
+      "aliases": ["qwen", "qwen-max", "qwen-plus", "qwen-turbo"],
+      "ratio_en": [0.22, 0.4],
+      "ratio_zh": [0.4, 0.9],
+      "tpot_ms_min": 5,
+      "tpot_ms_max": 120,
+      "cutoff": "2024-09",
+      "capability": "medium"
+    },
+    {
+      "id": "llama-3",
+      "family": "meta",
+      "aliases": ["llama-3", "llama3", "llama-3.3"],
+      "ratio_en": [0.18, 0.3],
+      "ratio_zh": [1.4, 3.0],
+      "tpot_ms_min": 8,
+      "tpot_ms_max": 120,
+      "cutoff": "2023-12",
+      "capability": "medium"
+    }
+  ]
+}
