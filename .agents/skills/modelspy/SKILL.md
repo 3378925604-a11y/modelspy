@@ -17,6 +17,18 @@ user-invocable: true
 
 ## 用法
 
+### 第 0 步 · 确保二进制可用
+
+优先使用本技能目录 `scripts/` 下已有的 modelspy 程序（Windows 为 `modelspy.exe`，Linux/macOS 为 `modelspy`）。若不存在，从官方 Release 下载到 `scripts/` 目录并按平台改名：
+
+- Windows amd64：`https://github.com/3378925604-a11y/modelspy/releases/download/v0.1.0/modelspy-windows-amd64.exe` → 保存为 `scripts/modelspy.exe`
+- Linux amd64：`https://github.com/3378925604-a11y/modelspy/releases/download/v0.1.0/modelspy-linux-amd64` → 保存为 `scripts/modelspy`，并 `chmod +x`
+- macOS arm64：`https://github.com/3378925604-a11y/modelspy/releases/download/v0.1.0/modelspy-darwin-arm64` → 保存为 `scripts/modelspy`，并 `chmod +x`
+
+下载后先运行 `-h` 确认可执行，再进入下一步。
+
+### 第 1 步 · 执行检测
+
 ```powershell
 & "SKILL_DIR\scripts\modelspy.exe" -base <接口地址> -model <模型名> [-key <API_KEY>] [-expect <宣称模型>] [-json] [-html <报告路径>]
 ```
