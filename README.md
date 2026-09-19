@@ -97,6 +97,39 @@ go build -o modelspy .
 go test ./...   # 全离线,内置 mock server
 ```
 
+## 安装为 Agent Skill
+
+### OpenCode
+
+```bash
+# 方式1: 直接复制到全局 skills 目录
+cp -r .opencode/skills/modelspy ~/.config/opencode/skills/
+
+# 方式2: 通过 GitHub 安装
+skill install https://github.com/3378925604-a11y/modelspy
+```
+
+### Claude Code
+
+```bash
+# 方式1: 复制到 Claude skills 目录
+cp -r .claude/skills/modelspy ~/.claude/skills/
+
+# 方式2: 通过 plugin marketplace
+/plugin marketplace add 3378925604-a11y/modelspy
+/plugin install modelspy@3378925604-a11y-modelspy
+```
+
+### Codex / Gemini CLI / 通用 Agent
+
+```bash
+# 复制到 ~/.agents/skills/
+cp -r .agents/skills/modelspy ~/.agents/skills/
+
+# 或使用 npx skills CLI
+npx skills@latest add 3378925604-a11y/modelspy -g -y -a opencode claude-code codex gemini-cli
+```
+
 ## License
 
 MIT
