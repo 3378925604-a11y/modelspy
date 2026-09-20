@@ -1,6 +1,6 @@
 ---
 name: modelspy
-description: '检测中转站/套壳站背后真实模型。用户提到"测模型降智"、"查中转站跑的什么模型"、"这个API是真4o还是套壳"、"模型识别"、"model spy"时使用。'
+description: '对任意 OpenAI 兼容接口做行为取证，识别背后真正在跑的模型家族与档位。查中转站/API 代理/代充前端有没有偷换便宜模型、验证端点是不是宣称的那个模型、批量抽测降智时使用：六路探针（分词器指纹、陷阱题库、生成速度 TPOT、自我披露、知识截止、Function calling）按权重投票，输出候选排名 + 置信度 + MATCHES/MISMATCH 判定和 HTML 报告。英文场景：identify which LLM actually serves an endpoint, detect reseller model downgrade, verify "is this really GPT-4o", audit OpenAI-compatible API behavior.'
 disable-model-invocation: false
 user-invocable: true
 ---
@@ -45,6 +45,8 @@ user-invocable: true
 | `-json` | ❌ | 输出机器可读 JSON |
 | `-html` | ❌ | 导出 HTML 可视化报告 |
 | `-timeout` | ❌ | 单次请求超时秒数（默认 90） |
+| `-list-probes` | ❌ | 列出全部探针后退出 |
+| `-version` | ❌ | 显示版本 |
 
 ### 探针说明
 
@@ -63,7 +65,7 @@ user-invocable: true
 2. 如用户未提供 API key，提示设置环境变量或传 `-key`
 3. 执行 modelspy 并等待结果（默认 10 分钟超时）
 4. 解读报告：关注置信度排名和 `MATCHES`/`MISMATCH` 判定
-5. 如结果置信度低，建议 `--repeat` 多跑几轮或只跑特定探针
+5. 如结果置信度低，建议多跑几轮或只跑特定探针
 
 ## 输出解读
 
