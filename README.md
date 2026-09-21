@@ -7,7 +7,7 @@
 
 ## 它解决什么问题
 
-中转站/套壳站的套路是吃信息差:宣称 GPT-5.6,实际路由到 5.6-mini、国产模型或蒸馏小模型。
+中转站/套壳站的套路是吃信息差:宣称 GPT-6,实际路由到 GPT-5.6 Luna、国产模型或蒸馏小模型。
 现有的连通性检测工具(如 model-check)做的是"**验证**":先要求对方声明是什么,再核对自洽性——
 但只要对方声明撒谎、或只在被测试时路由真模型,就查不出来。
 
@@ -31,13 +31,13 @@ ModelSpy 做的是"**识别**":不依赖任何声明,直接从多维行为证据
 到 [Releases](../../releases) 下载 `modelspy-windows-amd64.exe`,打开 cmd:
 
 ```bat
-modelspy-windows-amd64.exe -base https://你的中转域名/v1 -model gpt-5.6
+modelspy-windows-amd64.exe -base https://你的中转域名/v1 -model gpt-6-astra
 ```
 
 macOS / Linux:
 
 ```bash
-chmod +x modelspy-darwin-arm64 && ./modelspy-darwin-arm64 -base https://xxx/v1 -model gpt-5.6
+chmod +x modelspy-darwin-arm64 && ./modelspy-darwin-arm64 -base https://xxx/v1 -model gpt-6-astra
 ```
 
 自行编译:
@@ -62,11 +62,11 @@ go build -o modelspy .
 
 ```text
 ──────── 候选排名 ────────
-  gpt-4.1-mini      61%  ████████████
-  gpt-5.6            12%  ██
-  deepseek-chat     10%  █
+  gpt-5.6-luna    61%  ████████████
+  gpt-5.6-sol     22%  ████
+  deepseek-v4.1   10%  █
 
-结论: ❌ 不一致(疑似换壳)  识别结果 gpt-4.1-mini(置信度 61%)与声明 gpt-5.6 不符
+结论: ❌ 不一致(疑似换壳)  识别结果 gpt-5.6-luna(置信度 61%)与声明 gpt-6-astra 不符
 ```
 
 退出码:`0`=一致,`1`=不一致(疑似换壳),`3`=证据不足——可直接接入脚本做自动化监控。
@@ -75,7 +75,7 @@ go build -o modelspy .
 
 1. **概率性结论**:v0.1 指纹库是社区种子数据,未经大规模校准,低置信时请多跑几轮。
 2. **对抗性缺口**:中转可以"只对疑似测试的请求走真模型"。单轮检测抓不住,长期方案是常驻抽测(roadmap)。
-3. **同家族盲区**:5.6 与 4.1 分词器相同,主要靠题库与速度区分。
+3. **同家族盲区**:GPT-6 与 GPT-5.6 分词器相同,主要靠题库与速度区分。
 4. 本工具不抓包、不逆向、不需要对方配合,只使用公开 API 行为,不产生合规风险。
 
 ## Roadmap

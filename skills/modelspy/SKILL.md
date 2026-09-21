@@ -1,6 +1,6 @@
 ---
 name: modelspy
-description: '对任意 OpenAI 兼容接口做行为取证，识别背后真正在跑的模型家族与档位。查中转站/API 代理/代充前端有没有偷换便宜模型、验证端点是不是宣称的那个模型、批量抽测降智时使用：六路探针（分词器指纹、陷阱题库、生成速度 TPOT、自我披露、知识截止、Function calling）按权重投票，输出候选排名 + 置信度 + MATCHES/MISMATCH 判定和 HTML 报告。英文场景：identify which LLM actually serves an endpoint, detect reseller model downgrade, verify "is this really GPT-5.6", audit OpenAI-compatible API behavior.'
+description: '对任意 OpenAI 兼容接口做行为取证，识别背后真正在跑的模型家族与档位。查中转站/API 代理/代充前端有没有偷换便宜模型、验证端点是不是宣称的那个模型、批量抽测降智时使用：六路探针（分词器指纹、陷阱题库、生成速度 TPOT、自我披露、知识截止、Function calling）按权重投票，输出候选排名 + 置信度 + MATCHES/MISMATCH 判定和 HTML 报告。英文场景：identify which LLM actually serves an endpoint, detect reseller model downgrade, verify "is this really GPT-6", audit OpenAI-compatible API behavior.'
 disable-model-invocation: false
 user-invocable: true
 ---
@@ -38,7 +38,7 @@ user-invocable: true
 | 参数 | 必填 | 说明 |
 |------|------|------|
 | `-base` | ✅ | OpenAI 兼容接口地址，如 `https://api.openai.com/v1` |
-| `-model` | ✅ | 调用时使用的模型名，如 `gpt-5.6` |
+| `-model` | ✅ | 调用时使用的模型名，如 `gpt-6-astra` |
 | `-key` | ❌ | API key（默认读环境变量 `OPENAI_API_KEY`） |
 | `-expect` | ❌ | 对方宣称的模型（默认同 `-model`） |
 | `-probes` | ❌ | 只跑指定探针，逗号分隔：`identity,tokenizer,capability,cutoff,speed,toolcall` |
@@ -75,6 +75,6 @@ user-invocable: true
 
 ## 局限
 
-- 同家族盲区：5.6 与 4.1 分词器相同，主要靠题库与速度区分
+- 同家族盲区：GPT-6 与 GPT-5.6 分词器相同，主要靠题库与速度区分
 - 概率性结论：低置信时多跑几轮
 - 对抗性缺口：中转可以"只对疑似测试的请求走真模型"
