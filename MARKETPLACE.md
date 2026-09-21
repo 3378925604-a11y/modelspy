@@ -23,7 +23,7 @@
 
 ## 长描述（详情页 / 投稿表单用）
 
-宣称 GPT-4o、实际路由到 4o-mini 或蒸馏小模型，是中转站和"代充"前端最常见的吃信息差手法。现有连通性检测做的是"验证"——先要对方声明是什么，再核对自洽性，对方撒谎或只在被测试时走真模型就查不出来。
+宣称 GPT-5.6、实际路由到 5.6-mini 或蒸馏小模型，是中转站和"代充"前端最常见的吃信息差手法。现有连通性检测做的是"验证"——先要对方声明是什么，再核对自洽性，对方撒谎或只在被测试时走真模型就查不出来。
 
 ModelSpy 做的是"识别"：不依赖任何声明，直接从行为证据反推真实模型家族与档位。六路探针各自独立打分、按权重聚合，输出候选排名 + 置信度，而不是黑白结论：
 
@@ -36,11 +36,11 @@ ModelSpy 做的是"识别"：不依赖任何声明，直接从行为证据反推
 
 用法：`modelspy -base <接口地址> -model <模型名> [-key <KEY>] [-expect <宣称模型>] [-html report.html]`。退出码 `0`=与声明一致、`1`=疑似换壳、`3`=证据不足，可直接接进 CI 或脚本做长期监控。
 
-诚实声明：同家族（4o 与 4.1 分词器相同）主要靠题库与速度区分；v0.1 指纹库是社区种子数据，低置信时建议多跑几轮；不抓包、不逆向、不需要对方配合，只用公开 API 行为。
+诚实声明：同家族（5.6 与 4.1 分词器相同）主要靠题库与速度区分；v0.1 指纹库是社区种子数据，低置信时建议多跑几轮；不抓包、不逆向、不需要对方配合，只用公开 API 行为。
 
 ## 触发场景（英文市场用）
 
-Detect which model an API endpoint really runs · verify a reseller isn't downgrading GPT-4o to a cheaper model · "is this really Claude/GPT" · audit OpenAI-compatible proxy behavior · spot model substitution in API 中转站/代充站.
+Detect which model an API endpoint really runs · verify a reseller isn't downgrading GPT-5.6 to a cheaper model · "is this really Claude/GPT" · audit OpenAI-compatible proxy behavior · spot model substitution in API 中转站/代充站.
 
 ## 安装方式（写进市场详情）
 

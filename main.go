@@ -20,7 +20,7 @@ const version = "v0.1.0"
 func main() {
 	base := flag.String("base", "", "OpenAI 兼容接口地址,如 https://api.openai.com/v1")
 	key := flag.String("key", "", "API key(默认读环境变量 OPENAI_API_KEY)")
-	model := flag.String("model", "", "调用的模型名,如 gpt-4o")
+	model := flag.String("model", "", "调用的模型名,如 gpt-5.6")
 	expect := flag.String("expect", "", "声明的真实模型(默认同 --model)")
 	only := flag.String("probes", "all", "逗号分隔探针: identity,tokenizer,capability,cutoff,speed,toolcall")
 	timeout := flag.Int("timeout", 90, "单次请求超时秒数")
@@ -45,7 +45,7 @@ func main() {
 		return
 	}
 	if *base == "" || *model == "" {
-		fmt.Fprintln(os.Stderr, "用法: modelspy -base https://xxx/v1 -model gpt-4o [-expect gpt-4o] [-key sk-...]")
+		fmt.Fprintln(os.Stderr, "用法: modelspy -base https://xxx/v1 -model gpt-5.6 [-expect gpt-5.6] [-key sk-...]")
 		fmt.Fprintln(os.Stderr, "      key 可用环境变量 OPENAI_API_KEY 提供;详见 README.md")
 		os.Exit(2)
 	}
