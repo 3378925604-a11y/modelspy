@@ -1,5 +1,7 @@
 # ModelSpy 🔍
 
+**本地离线跑、专判「降智 / 掺水」的中文场景——Detect what model is really behind an OpenAI-compatible proxy。** 与通用 API 比对工具（如 api-model-spy）不同，ModelSpy 不依赖对方任何声明，直接对中转站/套壳站做行为取证。
+
 **不问它"你是什么模型",直接告诉你"你到底是什么模型"。**
 
 一个单文件命令行工具:对任意 OpenAI 兼容接口(中转站、API 代理、"Plus 代充"前端)做**行为取证**,
