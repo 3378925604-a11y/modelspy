@@ -143,6 +143,26 @@ go test ./...   # 全离线，内置 mock server
 # 通用：npx skills CLI，一次装到四个 agent
 npx skills@latest add 3378925604-a11y/modelspy -g -y -a opencode claude-code codex gemini-cli
 
+## English
+
+**ModelSpy** — detect what model is *really* behind any OpenAI-compatible endpoint. Resold proxies and rebranded distills are everywhere; ModelSpy interrogates the endpoint behaviorally instead of trusting its self-report.
+
+- **6 evidence channels**: tokenizer fingerprints, trap questions, speed side-channels, and more
+- **Output**: candidate ranking with confidence; non-zero exit codes for CI
+- **Zero dependencies**: single static binary, Windows / Linux / macOS
+
+### Quick start
+
+Grab a binary from [Releases](https://github.com/3378925604-a11y/modelspy/releases), or build from source:
+
+```bash
+go build -o modelspy .
+./modelspy https://your-proxy.example.com/v1 --api-key sk-xxx
+```
+
+The Chinese documentation above covers the full evidence model and interpretation guide.
+
+
 # Claude Code 插件市场
 /plugin marketplace add 3378925604-a11y/modelspy
 /plugin install modelspy@3378925604-a11y-modelspy
